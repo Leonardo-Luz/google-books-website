@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Home } from './routes/Home.route.tsx'
 
 const router = createBrowserRouter([
   {
@@ -9,10 +10,10 @@ const router = createBrowserRouter([
     element: <App />,
     // errorElement: <Error />,
     children: [
-      // {
-      //   index: true,
-      //   element: <Home />
-      // }
+      {
+        index: true,
+        element: <Home />
+      }
     ]
   }
 ])
