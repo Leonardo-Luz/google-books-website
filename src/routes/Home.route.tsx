@@ -1,7 +1,13 @@
+import '../styles/home.style.css'
+
 export const Home = () => {
   return (
-    <div>
-      <p>Hello World</p>
-    </div>
+    <>
+      <input
+        className="books-search"
+        type="search"
+        placeholder='Sherlock Holmes...'
+      />
+    </>
   )
 }
