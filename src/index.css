@@ -3,6 +3,11 @@
 
   margin: 0px;
   padding: 0px;
+
+  --darkest: #2C2C54;
+  --dark: #474787;
+  --light: #AAABB8;
+  --lighest: #ECECEC;
 }
 
 .main-container {
@@ -15,8 +20,8 @@
   align-items: center;
   justify-content: space-between;
 
-  background-color: #ECECEC;
-  color: #2C2C54;
+  background-color: var(--lighest);
+  color: var(--darkest);
 }
 
 /*
