@@ -12,3 +12,12 @@
   background-color: var(--dark);
   color: var(--lighest);
 }
+
+.nav-title {
+  color: var(--lighest);
+
+  font-size: 20px;
+  font-weight: bold;
+
+  text-decoration: none;
+}
