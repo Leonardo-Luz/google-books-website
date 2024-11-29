@@ -49,10 +49,10 @@ export const Book = () => {
               className="book-description"
             />
             <div className="book-data">
-              <BookElement title="Publisher" data={book.volumeInfo.publisher} />
-              <BookElement title="Published Date" data={book.volumeInfo.publishedDate} />
-              <BookElement title="Maturity Rating" data={book.volumeInfo.maturityRating} />
-              <BookElement title="Categories" data={book.volumeInfo.categories.join(' / ')} />
+              <BookElement title="Publisher" data={String(book.volumeInfo.publisher)} />
+              <BookElement title="Published Date" data={String(book.volumeInfo.publishedDate)} />
+              <BookElement title="Maturity Rating" data={String(book.volumeInfo.maturityRating)} />
+              <BookElement title="Categories" data={String(book.volumeInfo.categories.join(' / '))} />
               <BookElement title="Rating" data={String(book.volumeInfo.averageRating)} />
               <BookElement title="Rating Count" data={String(book.volumeInfo.ratingsCount)} />
               <BookElement title="Price" data={String(book.saleInfo.listPrice ? `${book.saleInfo.listPrice.amount} ${book.saleInfo.listPrice.currencyCode}` : undefined)} />
