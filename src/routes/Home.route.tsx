@@ -8,36 +8,44 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const [searchResult, setSearchResult] = useState<book[]>();
+  const search = useRef<HTMLInputElement>(null);
 
-  const getBooksBySearch = async (search: string) => {
+  const getBooksBySearch = async () => {
     setSearchResult(undefined)
 
-    if (search.trim() == '')
+    if (search.current == null || search.current.value.trim() === '')
       return;
 
     const response = await service.get(`/books/v1/volumes`, {
       method: 'get',
       params: {
-        q: search
+        q: search.current.value
       }
     })
 
     setSearchResult(response.data.items)
   }
 
-  const keyHandler = (ev: React.KeyboardEvent<HTMLInputElement>) =>
-    ev.key === 'Enter' ?
-      getBooksBySearch(ev.currentTarget.value) :
-      undefined
+  const keyHandler = (ev: React.KeyboardEvent<HTMLInputElement>) => {
+    switch (ev.key) {
+      case 'Enter':
+        getBooksBySearch();
+        break;
+      case 'Escape':
+        setSearchResult(undefined);
+        search.current!.value = '';
+        break;
+    }
+  }
 
   return (
     <div className='home-container'>
       <label className='search-label'>
-        <p>Search your book: </p>
         <input
+          ref={search}
           className="books-search"
           type="search"
-          placeholder='Sherlock Holmes...'
+          placeholder='Search for a book...'
           onKeyDown={keyHandler}
         />
       </label>
@@ -52,7 +60,7 @@ export const Home = () => {
               onClick={() => navigate(`/book/${book.id}`)}
             />
           )) :
-            <h1>Search to preview</h1>
+            undefined
         }
       </div>
     </div>
