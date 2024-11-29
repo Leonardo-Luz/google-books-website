@@ -46,3 +46,8 @@
   height: 0.3vh;
   background: repeating-linear-gradient(to right, var(--darkest), var(--darkest) 5px, transparent 5px, transparent 14px);
 }
+
+.book-thumb {
+  max-height: 30vh;
+  max-width: 30vw;
+}
