@@ -13,8 +13,17 @@ export type book = {
 			smallThumbnail: string,
 			thumbnail: string
 		},
-		language: string
+		language: string,
+		ratingsCount: number,
+		averageRating: number,
+		mainCategory: string,
 	},
+	saleInfo: {
+		listPrice: {
+			amount: number,
+			currencyCode: string
+		}
+	}
 }
 
 export type fetchResponse = {
