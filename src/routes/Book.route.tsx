@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { service } from "../services/api.service";
 import { book } from "../types";
+import DOMPurify from "dompurify";
 
 import '../styles/book.style.css'
 
@@ -29,7 +30,7 @@ export const Book = () => {
           <div className="book-container" key={book.id}>
             <p>{book.volumeInfo.title}</p>
             <img src={book.volumeInfo.imageLinks.thumbnail} />
-            {book.volumeInfo.description as React.ReactNode}
+            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(book.volumeInfo.description) }} />
           </div>
           :
           <p>LOADING</p>
